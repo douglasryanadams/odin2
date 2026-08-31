@@ -1,0 +1,10 @@
+---
+name: odin
+
+services:
+  gui-api:
+    image: odin/gui-api
+    build: ./gui-api
+    ports:
+      - "8000:8000"
+
