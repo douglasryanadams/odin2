@@ -2,6 +2,11 @@
 name: odin
 
 services:
+  gui-client:
+    image: odin/gui-client
+    build: ./gui-client
+    ports:
+      - "8080:8080"
   gui-api:
     image: odin/gui-api
     build: ./gui-api

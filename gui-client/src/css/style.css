@@ -1,0 +1,67 @@
+@font-face {
+  font-family: Michroma;
+  src: url("../fonts/Michroma-Regular.ttf");
+}
+
+:root {
+  --deep-red: #A30502;
+  --orange: #F78B04;
+  --dark-brown: #2B1718;
+  --dark-teal: #153A42;
+  --teal: #027F93;
+  --debug-border: 0px solid var(--teal);
+  --primary: var(--deep-red);
+  --secondary: var(--orange);
+  --background: var(--dark-brown);
+  --font-primary: var(--teal);
+  --font-secondary: var(--dark-teal);
+
+}
+
+body {
+  color: var(--font-primary);
+  font-family: Michroma, sans-serif;
+  background-color: var(--background);
+}
+
+h1 h2 {
+  color: var(--primary);
+}
+
+h3 h4 h5 {
+  color: var(--secondary);
+}
+
+.grid-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "header-box header-box";
+  border: var(--debug-border);
+}
+
+.header-box {
+  grid-area: header-box;
+  border: var(--debug-border);
+}
+
+.header-grid-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  place-items: center;
+  border: var(--debug-border);
+}
+
+.search-box {
+  background: var(--background);
+}
+
+.search-box input {
+  background: transparent;
+  outline: none;
+  color: var(--font-primary);
+  font: inherit;
+  border: 1px solid var(--font-primary);
+  padding: 0 4px;
+}
+

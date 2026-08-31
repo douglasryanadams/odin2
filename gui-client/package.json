@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "markuplint": "^4.18.3",
+    "stylelint": "^17.14.1"
+  },
+  "devDependencies": {
+    "stylelint-config-standard": "^40.0.0"
+  }
+}
