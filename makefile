@@ -19,5 +19,6 @@ lint-gui-api: format-gui-api
 lint-gui-client:
 	cd gui-client && bun run markuplint **/*.html
 	cd gui-client && bun run stylelint **/*.css
+	cd gui-client && bun run eslint src/**/*.js
 
 lint: lint-gui-api lint-gui-client
