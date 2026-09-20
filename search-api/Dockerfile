@@ -18,4 +18,4 @@ COPY ./src/search_api /app/src/search_api
 RUN --mount=type=cache,target=/root/.cache/uv \
     uv sync --locked
 
-CMD ["uv", "run", "uvicorn", "search_api.main:app", "--host", "0.0.0.0", "--port", "8001"]
+CMD ["uv", "run", "uvicorn", "search_api.run:app", "--host", "0.0.0.0", "--port", "8001"]

@@ -7,11 +7,27 @@ services:
     build: ./gui-client
     ports:
       - "8080:8080"
-  gui-api:
+  gui-api-1:
     image: odin/gui-api
     build: ./gui-api
-    scale: 3
-  search-api:
+  gui-api-2:
+    image: odin/gui-api
+    build: ./gui-api
+  gui-api-3:
+    image: odin/gui-api
+    build: ./gui-api
+  search-api-1:
     image: odin/search-api
     build: ./search-api
-    scale: 3
+  search-api-2:
+    image: odin/search-api
+    build: ./search-api
+  search-api-3:
+    image: odin/search-api
+    build: ./search-api
+# TODO: Configure this
+# Start integrating search-api
+  search-kv:
+    image: docker.dragonflydb.io/dragonflydb/dragonfly
+    ports:
+      - "6301:6379"
