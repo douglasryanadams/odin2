@@ -6,8 +6,7 @@ start:
 stop:
 	docker-compose down --volumes
 
-dev:
-	cd gui-client && bun src/index.html
+restart: stop start
 
 format-gui-api:
 	cd gui-api && uv run ruff check --fix . && uv run ruff format
