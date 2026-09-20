@@ -1,5 +1,5 @@
 from pytest import fixture
-from src.main import app
+from gui_api.main import app
 from starlette.testclient import TestClient
 
 

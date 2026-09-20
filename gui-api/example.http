@@ -1,4 +1,4 @@
-### GET Root
+### GET Healthcheck
 GET http://localhost:8080/api
 
 ### POST Search

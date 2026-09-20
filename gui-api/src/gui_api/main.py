@@ -1,14 +1,14 @@
 import logging
 
 from starlette.applications import Starlette
-from starlette.responses import JSONResponse
+from starlette.responses import JSONResponse, PlainTextResponse
 from starlette.routing import Route
 
 logger = logging.getLogger()
 
 
-async def homepage(request):
-    return JSONResponse({"hello": "world"})
+async def healthcheck(request):
+    return PlainTextResponse("", status_code=204)
 
 
 async def search(request):
@@ -19,7 +19,7 @@ async def search(request):
 app = Starlette(
     debug=True,
     routes=[
-        Route("/", homepage),
+        Route("/", healthcheck),
         Route("/search", search, methods=["POST"]),
     ],
 )

@@ -1,4 +1,6 @@
-PHONY: start stop lint-gui-api lint
+PHONY: start stop restart
+PHONY: format-gui-api lint-gui-api format-search-api lint-search-api lint-gui-client lint
+PHONY: test-gui-api test-search-api test
 
 start:
 	docker compose up --build
@@ -28,3 +30,11 @@ lint-gui-client:
 	cd gui-client && bun run eslint src/**/*.js
 
 lint: lint-gui-api lint-gui-client lint-search-api
+
+test-gui-api:
+	cd gui-api && uv run pytest .
+
+test-search-api:
+	cd search-api && uv run pytest .
+
+test: test-gui-api test-search-api
