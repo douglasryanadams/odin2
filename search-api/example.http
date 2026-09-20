@@ -1,0 +1,9 @@
+### GET Healthcheck
+GET http://localhost:8080/api-search
+
+### POST Search
+
+POST http://localhost:8080/api-search/brave
+Content-Type: application/json
+
+{ "req": "placeholder" }

@@ -1,14 +1,4 @@
 ### GET Root
-GET http://localhost:8000/
-
-### POST Search
-
-POST http://localhost:8000/search
-Content-Type: application/json
-
-{ "req": "placeholder" }
-
-### GET Root
 GET http://localhost:8080/api
 
 ### POST Search

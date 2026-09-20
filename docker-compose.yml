@@ -10,6 +10,8 @@ services:
   gui-api:
     image: odin/gui-api
     build: ./gui-api
-    ports:
-      - "8000:8000"
-
+    scale: 3
+  search-api:
+    image: odin/search-api
+    build: ./search-api
+    scale: 3
