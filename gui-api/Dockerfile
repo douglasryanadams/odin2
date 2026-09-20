@@ -11,11 +11,11 @@ RUN --mount=type=cache,target=/root/.cache/uv \
     uv sync --locked --no-install-project
 
 # Copy the project into the image
-COPY pyproject.toml uv.lock /app/
-COPY ./src/ /app/src
+COPY pyproject.toml uv.lock README.md /app/
+COPY ./src/gui_api /app/src/gui_api
 
 # Sync the project
 RUN --mount=type=cache,target=/root/.cache/uv \
     uv sync --locked
 
-CMD ["uv", "run", "uvicorn", "src.main:app", "--host", "0.0.0.0"]
+CMD ["uv", "run", "uvicorn", "gui_api.main:app", "--host", "0.0.0.0"]

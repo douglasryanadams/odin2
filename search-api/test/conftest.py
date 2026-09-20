@@ -1,6 +1,7 @@
 from pytest import fixture
-from search_api.main import app
 from starlette.testclient import TestClient
+
+from search_api.main import app
 
 
 @fixture

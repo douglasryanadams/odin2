@@ -1,6 +1,7 @@
 PHONY: start stop restart
 PHONY: format-gui-api lint-gui-api format-search-api lint-search-api lint-gui-client lint
 PHONY: test-gui-api test-search-api test
+PHONY: check
 
 start:
 	docker compose up --build
@@ -38,3 +39,5 @@ test-search-api:
 	cd search-api && uv run pytest .
 
 test: test-gui-api test-search-api
+
+check: lint test
