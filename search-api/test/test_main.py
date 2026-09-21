@@ -21,4 +21,4 @@ async def test_search(test_client, fake_redis):
 async def test_search_with_redirects(test_client, fake_redis):
     response = test_client.post("/brave", json={"query": "Test Search Query"}, follow_redirects=True)
     assert response.status_code == 200
-    assert response.text == '"placeholder"'
+    assert response.json() == {"result": "placeholder"}

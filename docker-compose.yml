@@ -16,6 +16,10 @@ services:
   gui-api-3:
     image: odin/gui-api
     build: ./gui-api
+  gui-kv:
+    image: docker.dragonflydb.io/dragonflydb/dragonfly
+    ports:
+      - "6301:6379"
   search-api-1:
     image: odin/search-api
     build: ./search-api
@@ -25,9 +29,7 @@ services:
   search-api-3:
     image: odin/search-api
     build: ./search-api
-# TODO: Configure this
-# Start integrating search-api
   search-kv:
     image: docker.dragonflydb.io/dragonflydb/dragonfly
     ports:
-      - "6301:6379"
+      - "6302:6379"

@@ -18,4 +18,4 @@ COPY ./src/gui_api /app/src/gui_api
 RUN --mount=type=cache,target=/root/.cache/uv \
     uv sync --locked
 
-CMD ["uv", "run", "uvicorn", "gui_api.main:app", "--host", "0.0.0.0"]
+CMD ["uv", "run", "uvicorn", "gui_api.run:app", "--host", "0.0.0.0"]

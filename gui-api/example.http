@@ -6,4 +6,7 @@ GET http://localhost:8080/api
 POST http://localhost:8080/api/search
 Content-Type: application/json
 
-{ "req": "placeholder" }
+{
+  "query": "Example Search String"
+}
+

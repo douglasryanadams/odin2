@@ -1,6 +1,8 @@
 import hashlib
+import json
 import logging
 import os
+import sys
 from collections.abc import AsyncIterator
 from contextlib import asynccontextmanager
 from dataclasses import dataclass
@@ -18,6 +20,7 @@ from starlette.types import Lifespan
 
 from search_api.kv import KeyValConnection
 
+logging.basicConfig(level=logging.INFO, stream=sys.stdout)
 logger = logging.getLogger()
 
 
@@ -61,7 +64,7 @@ async def _do_brave_search(query_hash: str, query: str, redis_connection: KeyVal
     await redis_connection.hset(query_hash, "status", SearchStatus.STARTED)
     # TODO: Execute Search
     logger.info("... search complete")
-    await redis_connection.hset(query_hash, "results", "placeholder")
+    await redis_connection.hset(query_hash, "results", '{ "result": "placeholder" }')
     await redis_connection.hset(query_hash, "status", SearchStatus.SUCCEEDED)
 
 
@@ -92,7 +95,8 @@ async def search_result(request: Request[GlobalResources]):
         raise HTTPException(status_code=404, detail="Query not found.")
     if query_status == "SUCCEEDED" or query_status == "FAILED":
         query_result = await redis_connection.hget(query_hash, "results")
-        return JSONResponse(query_result)
+        assert isinstance(query_result, str)
+        return JSONResponse(json.loads(query_result))
     else:
         return RedirectResponse(url=f"{base_path}/search-result/{query_hash}", status_code=302)
 

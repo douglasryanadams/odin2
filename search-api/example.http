@@ -6,5 +6,7 @@ GET http://localhost:8080/api-search
 POST http://localhost:8080/api-search/brave
 Content-Type: application/json
 
-{ "query": "Example Search String" }
+{
+  "query": "Example Search String"
+}
 
