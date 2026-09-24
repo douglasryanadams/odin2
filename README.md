@@ -10,9 +10,10 @@ These are the pre-requisites for doing development in this project
 - Docker
 - Docker Compose
 - Python 3.14
-- UV (Python Package Manager)
-- Bun
-- Make
+- uv (Python package manager)
+- bun (JavaScript runtime, and package manager)
+- make (Project management commands)
+- oha (Load tests)
 
 Perhaps eventually I will rewrite the make commands to rely exclusively on Docker, for now these tools are easy enough to install on MacOS or Linux.
 

@@ -1,6 +1,6 @@
 PHONY: start stop restart
 PHONY: format-gui-api lint-gui-api format-search-api lint-search-api lint-gui-client lint
-PHONY: test-gui-api test-search-api test
+PHONY: test-gui-api test-search-api load playwright test
 PHONY: check
 
 start:
@@ -37,6 +37,12 @@ test-gui-api:
 
 test-search-api:
 	cd search-api && uv run pytest .
+
+load:
+	oha -z 10s -m POST -T 'application/json' -d '{"query":"Ghostbusters"}' http://localhost:8080/api/search
+
+playwright:
+	cd tests && bun playwright test
 
 test: test-gui-api test-search-api
 
