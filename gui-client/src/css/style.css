@@ -36,7 +36,8 @@ h3 h4 h5 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-areas:
-    "header-box header-box";
+    "header-box header-box"
+    "body-box body-box";
   border: var(--debug-border);
 }
 
@@ -63,4 +64,9 @@ h3 h4 h5 {
   font: inherit;
   border: 1px solid var(--font-primary);
   padding: 0 4px;
+}
+
+.body-box {
+  grid-area: body-box;
+  border: var(--debug-border);
 }
